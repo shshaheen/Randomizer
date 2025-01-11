@@ -1,2 +1,2 @@
 # Randomizer
-Just a simple for dice roll
+Just a simple app for dice roll
