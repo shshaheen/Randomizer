@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:randomizer/style_text.dart';
-import 'dart:math';
+import 'dice_roller.dart';
 
 class GradientContainer extends StatefulWidget {
   final List<Color> colors;
@@ -11,22 +11,9 @@ class GradientContainer extends StatefulWidget {
 }
 
 class _GradientContainerState extends State<GradientContainer> {
-  final List<String> images = [
-    'assets/images/dice-1.png',
-    'assets/images/dice-2.png',
-    'assets/images/dice-3.png',
-    'assets/images/dice-4.png',
-    'assets/images/dice-5.png',
-    'assets/images/dice-6.png',
-  ];
-
-  int generateRandom() {
-    return Random().nextInt(6);
-  }
 
   @override
   Widget build(BuildContext context) {
-    print(generateRandom());
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -35,19 +22,8 @@ class _GradientContainerState extends State<GradientContainer> {
           end: Alignment.bottomRight,
         ),
       ),
-      child: Column(
-        children: [
-          Image.asset(images[generateRandom()]),
-          ElevatedButton(
-            onPressed: () {
-              int value = generateRandom();
-              setState(() {
-                Image.asset(images[value]);
-              });
-            },
-            child: const Text("Click!"),
-          ),
-        ],
+      child: Center(
+        child: DiceRoller(),
       ),
     );
   }
