@@ -1,30 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:randomizer/style_text.dart';
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  final List<Color> colors;
+  const GradientContainer({super.key,
+  required this.colors});
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            const Color.fromARGB(255, 119, 255, 77),
-            Colors.indigoAccent,
-            const Color.fromARGB(255, 255, 68, 215),
-            Colors.greenAccent,
-            Colors.deepOrangeAccent,
-            const Color.fromARGB(255, 173, 41, 235),
-          ],
+          colors:colors,
         ),
       ),
       child: Center(
-        child: Text(
-          "Hello Developer",
-          style: TextStyle(
-            color: Colors.amberAccent,
-            fontSize: 28.0,
-          ),
-        ),
+        
+        child: StyleText(text: "Hello Developer..!"),
       ),
     );
   }
